@@ -237,6 +237,10 @@ body {
     cursor: pointer;
 }
 
+.media-item[data-playing] {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
 .item-id {
     width: 5%;
     display: flex;

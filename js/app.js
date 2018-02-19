@@ -4,7 +4,7 @@ const data = [{
         title: "controlla",
         album: "rainy evening ep",
         author: "Idealism",
-        duration: "1:48",
+        duration: "2:01",
         path: "Idealism.mp3",
         cover: "idealism.jpg",
         color: "rgba(0,0,0,1)"
@@ -76,6 +76,46 @@ mainTotal.innerText = data.length;
 
 /// Controls
 
+function minus() {
+    player.currentTime -= 10;
+}
+
+function more() {
+    player.currentTime += 10;
+}
+
+function play() {
+
+
+    let btn = document.getElementById("playBtn");
+    if (player.paused) {
+        if (document.querySelectorAll("#player > source").length == 0) {
+            playMedia(0);
+        } else {
+            player.play();
+            btn.className = "svg-inline--fa fa-pause-circle fa-w-16";
+            btn.setAttribute("data-icon", "pause-circle");
+        }
+
+    } else {
+        player.pause();
+        btn.className = "svg-inline--fa fa-play-circle fa-w-16";
+        btn.setAttribute("data-icon", "play-circle");
+
+    }
+}
+
+function back() {
+    var currentId = parseInt(player.getAttribute("data-id"));
+
+    currentId == 0 ? playMedia(data.length - 1) : playMedia(currentId - 1);
+}
+
+function next() {
+    var currentId = parseInt(player.getAttribute("data-id"));
+    currentId + 1 == data.length ? playMedia(0) : playMedia(currentId + 1);
+}
+
 /// Time duration
 
 const durationSlider = document.getElementById("currentTime");
@@ -90,15 +130,24 @@ durationSlider.addEventListener("change", () => {
 }, false);
 
 
+player.addEventListener("ended", () => {
+    var currentId = parseInt(player.getAttribute("data-id"));
+    currentId + 1 == data.length ? playMedia(0) : playMedia(currentId + 1);
+}, false)
+
 /// Volume
 
+var storedVolume = parseFloat(localStorage.getItem("volume"));
+
+player.volume = storedVolume;
+
 const volumeSlider = document.getElementById("volumeRange");
-volumeSlider.value = player.volume * 100;
+volumeSlider.value = player.volume * 10;
 
 volumeSlider.addEventListener("change", () => {
-    console.log(player.volume);
-
     player.volume = volumeSlider.value / 10;
+    localStorage.setItem("volume", player.volume);
+
 }, false);
 
 volumeSlider.addEventListener("mousewheel", (e) => {
@@ -112,40 +161,27 @@ volumeSlider.addEventListener("mousewheel", (e) => {
         }
     }
     volumeSlider.value = player.volume * 10;
+
+    localStorage.setItem("volume", player.volume);
 }, false);
 
 function getMedia(id) {
-
     let divcontainer = document.createElement("div");
-
-
-
     data.forEach(e => {
 
         if (e.id == id) {
-
             divcontainer.className = "item-container media-item";
-
-
+            divcontainer.setAttribute("data-id", e.id);
             var res = '<div class="item-id">' + e.id + '</div><div class="item-info"><div class="item-title">' + e.title + '</div><span class="item-author">' + e.author + '</span> · <span class="item-album">' + e.album + '</span></div><div class="item-duration">' + e.duration + '</div>';
 
             divcontainer.innerHTML = res;
 
             divcontainer.addEventListener("click", () => {
-                var mediaItems = document.querySelectorAll(".item-container.media-item");
-                mediaItems.forEach(element => {
-                    element.removeAttribute("data-playing");
-                });
 
                 playMedia(id);
-                divcontainer.setAttribute("data-playing", "true");
-
             }, false);
         }
-
     });
-
-
 
     return divcontainer;
 }
@@ -153,9 +189,14 @@ function getMedia(id) {
 
 function playMedia(id) {
 
-
-
-
+    var mediaItems = document.querySelectorAll(".item-container.media-item");
+    mediaItems.forEach(element => {
+        if (element.getAttribute("data-id") == id) {
+            element.setAttribute("data-playing", "true");
+        } else {
+            element.removeAttribute("data-playing");
+        }
+    });
 
     data.forEach(e => {
         if (e.id == id) {
@@ -208,36 +249,3 @@ function playMedia(id) {
 data.forEach(e => {
     mediaContainer.appendChild(getMedia(e.id));
 });
-
-function minus() {
-    player.currentTime -= 10;
-}
-
-function more() {
-    player.currentTime += 10;
-}
-
-function play() {
-
-    let btn = document.getElementById("playBtn");
-    if (player.paused) {
-        player.play();
-        btn.className = "svg-inline--fa fa-pause-circle fa-w-16";
-        btn.setAttribute("data-icon", "pause-circle");
-    } else {
-        player.pause();
-        btn.className = "svg-inline--fa fa-play-circle fa-w-16";
-        btn.setAttribute("data-icon", "play-circle");
-
-    }
-}
-
-function back() {
-
-}
-
-function next() {
-
-    var currentId = parseInt(player.getAttribute("data-id"));
-
-}
