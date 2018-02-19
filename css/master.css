@@ -456,7 +456,6 @@ input[type='range']::-moz-range-thumb {
     }
     .item-login {
         margin-left: 80% !important;
-        width: -57%;
         position: absolute;
         top: 12px;
         display: inline !important;
@@ -464,7 +463,6 @@ input[type='range']::-moz-range-thumb {
     .item-login:hover {
         top: -39px;
         margin-left: 80% !important;
-        width: -57%;
         position: absolute;
         top: 12px;
         display: inline !important;
