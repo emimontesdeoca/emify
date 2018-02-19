@@ -37,6 +37,7 @@ body {
     /* display: flex;
     justify-content: center;
     flex-wrap: WRAP; */
+    position: fixed;
 }
 
 .logo-title {
@@ -62,6 +63,7 @@ body {
     margin-top: 5px;
     width: 60px;
     height: 60px;
+    margin-left: -10px;
 }
 
 .item-left {
@@ -72,11 +74,37 @@ body {
     cursor: pointer;
 }
 
+.item-left>p>svg {
+    position: absolute;
+    left: 165px;
+    margin-top: 5px;
+}
+
 .item-left:hover {
     font-size: 16px;
     color: rgba(255, 255, 255, 1);
     margin-left: 15%;
 }
+
+.item-not-hover {
+    color: rgba(255, 255, 255, 0.4);
+    cursor: default;
+}
+
+.item-not-hover:hover {
+    color: rgba(255, 255, 255, 0.4);
+    cursor: default;
+}
+
+.middle-right-container {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    margin-left: 220px;
+    width: 100%;
+    overflow-y: scroll;
+}
+
 .middle {
     /* border: 1px solid black; */
     height: 100%;
@@ -88,7 +116,7 @@ body {
 }
 
 .cover-img {
-    margin-top: 50px;
+    margin-top: 100px;
     max-width: 60%;
     max-height: 45%;
 }
@@ -159,6 +187,11 @@ body {
     transition: background-color 0.2s ease-in;
 }
 
+.media-item-background {
+    background-color: rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
 .media-item:hover {
     background-color: rgba(0, 0, 0, 0.3);
     cursor: pointer;
@@ -172,6 +205,14 @@ body {
 
 .item-title {
     color: white;
+}
+
+.item-author {
+    width: 50%;
+}
+
+.item-album {
+    width: 50%;
 }
 
 .item-info {
@@ -201,7 +242,7 @@ body {
     align-items: center;
     padding: 9px;
     flex-wrap: wrap;
-    margin-left: 20px;
+    /* margin-left: 20px; */
     align-items: center;
     justify-content: center;
     font-size: 15px;
@@ -296,8 +337,8 @@ input[type='range']::-moz-range-thumb {
 }
 
 .current-img {
-    max-width: 60%;
-    max-height: 45%;
+    max-width: 70px;
+    max-height: 70px
 }
 
 .current-playing-left {
@@ -348,4 +389,36 @@ input[type='range']::-moz-range-thumb {
     align-items: center;
     margin-left: 10px;
     margin-right: 10px;
+}
+
+@media(min-width:576px) {}
+
+@media(min-width:768px) {}
+
+@media(min-width:992px) {}
+
+@media(max-width:1200px) {
+    .middle {
+        width: 100%;
+        overflow-y: scroll;
+        height: auto;
+    }
+    .right {
+        height: auto;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .current-playing{
+        width: 30%;
+    }
+
+    .volume-controls{
+        width: 30%;
+    }
+
+    #currentTime{
+        width: 140%;
+        margin-left: -20%;
+    }
 }
