@@ -11,7 +11,7 @@ body {
 .main {
     display: flex;
     flex-wrap: wrap;
-    height: 90%;
+    height: 92%;
     background: rgba(113, 32, 56, 1);
     background: -moz-linear-gradient( top, rgba(113, 32, 56, 1) 0%, rgba(113, 33, 56, 1) 0%, rgba(113, 33, 56, 1) 0%, rgba(0, 0, 0, 1) 100%);
     background: -webkit-gradient( left top, left bottom, color-stop(0%, rgba(113, 32, 56, 1)), color-stop(0%, rgba(113, 33, 56, 1)), color-stop(0%, rgba(113, 33, 56, 1)), color-stop(100%, rgba(0, 0, 0, 1)));
@@ -118,7 +118,7 @@ body {
 }
 
 .media-item:hover {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.3);
     cursor: pointer;
 }
 
@@ -144,9 +144,166 @@ body {
 
 .controls {
     border: 1px solid black;
-    height: 10%;
+    height: 8%;
     width: 100%;
     background-color: rgba(40, 40, 40, 1);
     position: fixed;
     bottom: 0;
+    display: flex;
+    color: white;
+}
+
+.current-playing {
+    width: 10%;
+    display: flex;
+    align-items: center;
+    padding: 9px;
+    flex-wrap: wrap;
+    margin-left: 20px;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.buttons-controls {
+    font-size: 20px;
+    height: 50%;
+    /* line-height: 8px; */
+    display: flex;
+    align-items: center;
+    top: 0;
+    /* margin-top: -30px; */
+    color: rgba(255, 255, 255, 0.4);
+    flex-basis: 100%;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.buttons-controls>svg {
+    margin: 0px 20px 0px 20px;
+    cursor: pointer;
+}
+
+.buttons-controls>svg:hover {
+    color: rgba(255, 255, 255, 1);
+    transition: color 0.2s ease-in;
+}
+
+.buttons-controls>svg:nth-child(3):hover {
+    transform: scale(1.1);
+}
+
+.buttons-controls>svg:nth-child(3) {
+    font-size: 40px;
+    transition: transform 0.2s ease-in;
+}
+
+.slider-container {
+    height: 50%;
+    width: 40%;
+}
+
+/* The slider itself */
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 5px;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.4);
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider-container:hover input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+    height: 10px;
+    -webkit-appearance: none;
+    color: #13bba4;
+    margin-top: -1px;
+}
+
+input[type='range']::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: rgba(29, 185, 84, 1);
+    cursor: pointer;
+}
+
+.current-img {
+    max-width: 60%;
+    max-height: 45%;
+}
+
+.current-playing-left {
+    width: 50%;
+}
+
+.current-playing-right {
+    margin-left: -20px;
+    width: 50%;
+}
+
+.current-title {
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: rgba(255, 255, 255, 1);
+}
+
+.current-author {
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.main-controls {
+    width: 80%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.volume-controls {
+    width: 10%;
+    font-size: 25px;
+    /* line-height: 8px; */
+    display: flex;
+    align-items: center;
+    top: 0;
+    /* margin-top: -30px; */
+    color: rgba(255, 255, 255, 0.4);
+    /* flex-basis: 100%; */
+    justify-content: center;
+}
+
+.volume-slider {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    margin-right: 10px;
 }
