@@ -470,6 +470,10 @@ input[type='range']::-moz-range-thumb {
     .item-login>p>svg {
         display: none;
     }
+
+    .item-id{
+        width:10%;
+    }
 }
 
 @media(max-width:768px) {
