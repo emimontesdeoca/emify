@@ -137,7 +137,7 @@ player.addEventListener("ended", () => {
 
 /// Volume
 
-var storedVolume = parseFloat(localStorage.getItem("volume"));
+var storedVolume = parseFloat(localStorage.getItem("volume")) || 0.5;
 
 player.volume = storedVolume;
 
