@@ -155,7 +155,7 @@ body {
 }
 
 .cover-img {
-    margin-top: 100px;
+    margin-top: 50px;
     max-width: 60%;
     max-height: 45%;
 }
@@ -184,6 +184,7 @@ body {
     width: 100%;
     font-size: 50px;
     color: white;
+    margin-top: 10px;
 }
 
 .random-btn {
