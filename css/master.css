@@ -18,7 +18,7 @@ body {
 .main {
     display: flex;
     flex-wrap: wrap;
-    height: Calc(92% + 92px);
+    height: Calc(97% + 0px);
     background: rgba(113, 32, 56, 1);
     background: -moz-linear-gradient( top, rgba(113, 32, 56, 1) 0%, rgba(113, 33, 56, 1) 0%, rgba(113, 33, 56, 1) 0%, rgba(0, 0, 0, 1) 100%);
     background: -webkit-gradient( left top, left bottom, color-stop(0%, rgba(113, 32, 56, 1)), color-stop(0%, rgba(113, 33, 56, 1)), color-stop(0%, rgba(113, 33, 56, 1)), color-stop(100%, rgba(0, 0, 0, 1)));
@@ -83,7 +83,7 @@ body {
 .item-login {
     position: fixed;
     bottom: 180px;
-    margin-left: 25px;
+    margin-left: 35px;
 }
 
 .item-spacer {
@@ -110,13 +110,13 @@ body {
 .item-login:hover {
     position: fixed;
     bottom: 180px;
-    margin-left: 25px !important;
+    margin-left: 35px !important;
 }
 
 .item-login>p>svg {
     position: relative;
     /* top: 76vh; */
-    margin-left: -70px;
+    margin-left: -80px;
 }
 
 .item-left:hover {
