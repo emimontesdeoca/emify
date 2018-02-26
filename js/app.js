@@ -59,16 +59,6 @@ const data = [{
     path: "clrsky.mp3",
     cover: "luv.jpg",
     color: "rgba(0,0,0,1)"
-}, {
-    id: 6,
-    type: "video",
-    title: "Videito para Francis",
-    album: "Videitos",
-    author: "Emiliano Montesdeoca",
-    duration: "1:36",
-    path: "video.mp4",
-    cover: "video.mp4",
-    color: "rgba(0,0,0,1)"
 }
 ]
 
